@@ -17,6 +17,12 @@ class RoomList extends Component {
         });
       }
 
+      createChatRoom(name){
+          this.roomsRef.push({
+              name: name
+          })
+      }
+
     render() {
         return (
             <section className ="chat-room-list">
