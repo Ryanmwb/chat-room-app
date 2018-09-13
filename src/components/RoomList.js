@@ -3,11 +3,11 @@ import React, {Component} from 'react';
 class RoomList extends Component {
     constructor(props){
         super(props)
+        this.roomsRef = this.props.firebase.database().ref('rooms');
         this.state = {
             rooms: []
-        };
-        this.roomsRef = this.props.firebase.database().ref('rooms');
-    }
+        }
+    };
 
     componentDidMount() {
         this.roomsRef.on('child_added', snapshot => {
@@ -19,11 +19,13 @@ class RoomList extends Component {
 
     render() {
         return (
-            <section>
-                {this.state.rooms.map(room => 
-                    <h2>{room]</h2>
-                )}
-            </section>
+            <section className ="chat-room-list">
+			{this.state.rooms.map( (rooms, index) =>
+				<div className="rooms" key={index}>
+					<li className="room-list">{rooms.name}</li>
+				</div>
+				)}
+			</section>
         )
     }
 }
