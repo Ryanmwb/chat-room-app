@@ -26,7 +26,6 @@ class RoomList extends Component {
             name: name
         })
         this.setState({chatRoomName: ''})
-        console.log(this.state.chatRoomName)
     }
 
     handleNameChange(e){
