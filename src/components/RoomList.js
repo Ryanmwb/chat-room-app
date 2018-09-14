@@ -19,19 +19,14 @@ class RoomList extends Component {
         });
       }
 
-    createChatRoom(name){
-          this.roomsRef.push({
-              name: name
-          })
-          this.setState({chatRoomName: name})
-      }
-    
-    handleClick(){
+    createChatRoom(e){
+        e.preventDefault();
         let name = this.state.chatRoomName
         this.roomsRef.push({
             name: name
         })
-        console.log(name)
+        this.setState({chatRoomName: ''})
+        console.log(this.state.chatRoomName)
     }
 
     handleNameChange(e){
@@ -43,7 +38,7 @@ class RoomList extends Component {
             <section className ="chat-room-list">
             <CreateRoom 
             chatRoomName={this.state.chatRoomName} 
-            handleClick={(e) => this.handleClick(e)}
+            createChatRoom={(e) => this.createChatRoom(e)}
             handleNameChange={(e)=>this.handleNameChange(e)}
             />
 			{this.state.rooms.map( (rooms, index) =>

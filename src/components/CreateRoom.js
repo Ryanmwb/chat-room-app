@@ -14,8 +14,9 @@ class CreateRoom extends Component {
                                 className="form-control col" 
                                 placeholder="Chat Room Name"  
                                 onChange={this.props.handleNameChange}
+                                value={this.props.chatRoomName}
                             />
-                            <button className="col" onClick={this.props.handleClick}>
+                            <button className="col" onClick={this.props.createChatRoom}>
                                 Create Chat Room
                             </button>
                         </span>
