@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import RoomList from './components/RoomList';
+import MessageList from './components/MessageList';
 import * as firebase from 'firebase';
 var config = {
   apiKey: "AIzaSyC2fGXYHvvznWb4niLys69YRih5EuRX7tw",
@@ -14,6 +15,19 @@ var config = {
 firebase.initializeApp(config);
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      currentRoom: null,
+
+    }
+  }
+
+  changeCurrentRoom(room){
+    
+    console.log(room)
+  }
+
   render() {
     return (
       <div className="App">
@@ -21,7 +35,8 @@ class App extends Component {
           <h1>Bloc Chat</h1>
         </header>
         <main>
-          <RoomList firebase={firebase}/>
+          <RoomList firebase={firebase} changeCurrentRoom={(room) => this.changeCurrentRoom(room)}/>
+          <MessageList firebase={firebase}/>
         </main>
       </div>
     );

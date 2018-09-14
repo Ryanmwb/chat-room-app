@@ -40,9 +40,10 @@ class RoomList extends Component {
             createChatRoom={(e) => this.createChatRoom(e)}
             handleNameChange={(e)=>this.handleNameChange(e)}
             />
-			{this.state.rooms.map( (rooms, index) =>
+			{this.state.rooms.map( (room, index) =>
 				<div className="rooms" key={index}>
-					<li className="room-list">{rooms.name}</li>
+					<li className="room-list" onClick={this.props.changeCurrentRoom(room)}>{room.name}</li>
+                    <button onClick={this.props.changeCurrentRoom(room)}> Button</button>
 				</div>
 				)}
 			</section>
