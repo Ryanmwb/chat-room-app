@@ -15,7 +15,7 @@ class CreateMessage extends Component {
                                 onChange={(e)=>this.props.handleMessageChange(e)}
                                 value={this.props.chatRoomName}>
                             </textarea>
-                            <button className="col" width="300" onClick={(e)=>this.props.CreateMessage(e)}>
+                            <button className="col" width="300" onClick={(e)=>this.props.createMessage(e)}>
                                 Send Message
                             </button>
                         </span>

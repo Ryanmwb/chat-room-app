@@ -27,6 +27,7 @@ class MessageList extends Component {
 
     createMessage(e){
         e.preventDefault();
+        console.log(this.props.currentRoom)
         this.messagesRef.push({
             username: "username will go here",
             content: this.state.newMessage,
@@ -40,9 +41,11 @@ class MessageList extends Component {
         return (
             <div>
                 <h1>Message List Component</h1>
-                <CreateMessage handleMessageChange={(e)=>this.handleMessageChange(e)} createMessage={(e)=>this.createMessage(e)}/>
+                <CreateMessage handleMessageChange={(e)=>this.handleMessageChange(e)} 
+                    createMessage={(e)=>this.createMessage(e)} 
+                />
                 {this.state.messages.map( (message, index)=>
-                    <div className="messages">
+                    <div className="messages" key={index}>
                         <li>{message.content}</li>
                     </div>
                 )}
