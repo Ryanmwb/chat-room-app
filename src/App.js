@@ -25,7 +25,6 @@ class App extends Component {
 
   changeCurrentRoom(room){
     this.setState({currentRoom: room.key})
-    console.log(this.state.currentRoom)
   }
 
   render() {

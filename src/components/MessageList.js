@@ -41,14 +41,24 @@ class MessageList extends Component {
         return (
             <div>
                 <h1>Message List Component</h1>
-                <CreateMessage handleMessageChange={(e)=>this.handleMessageChange(e)} 
+                <CreateMessage 
+                    handleMessageChange={(e)=>this.handleMessageChange(e)} 
                     createMessage={(e)=>this.createMessage(e)} 
+                    messageValue={this.state.newMessage}
                 />
-                {this.state.messages.map( (message, index)=>
-                    <div className="messages" key={index}>
-                        <li>{message.content}</li>
-                    </div>
-                )}
+                <table>
+                    <tbody>
+                    {this.state.messages.filter(message=>
+                        message.roomId === this.props.currentRoom).map((message, index)=>
+                            <tr className="messages" key={message.key}>
+                                <td>Message: {message.content}</td>
+                                <td>Date Created: {message.sentAt}</td>
+                            </tr>
+                        )
+                    }
+                    </tbody>
+                </table>
+
             </div>
         )
     }

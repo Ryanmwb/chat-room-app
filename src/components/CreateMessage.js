@@ -13,7 +13,7 @@ class CreateMessage extends Component {
                                 rows="4" 
                                 cols="70" 
                                 onChange={(e)=>this.props.handleMessageChange(e)}
-                                value={this.props.chatRoomName}>
+                                value={this.props.messageValue}>
                             </textarea>
                             <button className="col" width="300" onClick={(e)=>this.props.createMessage(e)}>
                                 Send Message

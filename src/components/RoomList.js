@@ -45,7 +45,7 @@ class RoomList extends Component {
 					<li> 
                         <button 
                             className="room-list" 
-                            onClick={(room) => this.props.changeCurrentRoom(room)}
+                            onClick={() => this.props.changeCurrentRoom(room)}
                             >{room.name}</button>
                     </li>
 				</div>
