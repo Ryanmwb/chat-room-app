@@ -23,7 +23,8 @@ class User extends Component {
     render(){
         return(
             <div>
-                {this.props.user !== 'Guest' ? <h1>{this.props.user.displayName}</h1> : <h1>Guest</h1>}
+                {/* this.props.user !== 'Guest' ? <h1>{this.props.user.displayName}</h1> : <h1>{this.props.user}</h1> */}
+                <h1>User: {this.props.user}</h1>
                 {this.props.user !== 'Guest' ? <button onClick={()=>this.signOut()}>Sign out</button> : <button onClick={()=>this.signIn()}>Sign In</button>}
             </div>
         )
