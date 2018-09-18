@@ -20,7 +20,7 @@ class App extends Component {
     super(props)
     this.state = {
       currentRoom: null,
-      user: null,
+      user: "Guest",
     }
   }
 
@@ -39,7 +39,7 @@ class App extends Component {
           <h1>Bloc Chat</h1>
         </header>
         <main>
-          <User firebase={firebase} setUser={this.setUser} provider={new firebase.auth.GoogleAuthProvider()} user={this.state.user}/>
+          <User firebase={firebase} setUser={(user) => this.setUser(user)} provider={new firebase.auth.GoogleAuthProvider()} user={this.state.user}/>
           <RoomList firebase={firebase} changeCurrentRoom={(room) => this.changeCurrentRoom(room)}/>
           <MessageList firebase={firebase} currentRoom={this.state.currentRoom}/>
         </main>
