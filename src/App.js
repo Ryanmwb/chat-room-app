@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 import * as firebase from 'firebase';
 var config = {
   apiKey: "AIzaSyC2fGXYHvvznWb4niLys69YRih5EuRX7tw",
@@ -19,12 +20,16 @@ class App extends Component {
     super(props)
     this.state = {
       currentRoom: null,
-
+      user: null,
     }
   }
 
   changeCurrentRoom(room){
     this.setState({currentRoom: room.key})
+  }
+
+  setUser(user){
+    this.setState({user: user})
   }
 
   render() {
@@ -34,6 +39,7 @@ class App extends Component {
           <h1>Bloc Chat</h1>
         </header>
         <main>
+          <User firebase={firebase} setUser={this.setUser} provider={new firebase.auth.GoogleAuthProvider()} user={this.state.user}/>
           <RoomList firebase={firebase} changeCurrentRoom={(room) => this.changeCurrentRoom(room)}/>
           <MessageList firebase={firebase} currentRoom={this.state.currentRoom}/>
         </main>
