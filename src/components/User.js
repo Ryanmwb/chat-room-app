@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 class User extends Component {
     constructor(props){
         super(props)
+        this.state={
+            signInOrOut: null,
+        }
     }
 
     componentDidMount(){
@@ -14,18 +17,19 @@ class User extends Component {
     signIn(){
         const provider = new this.props.firebase.auth.GoogleAuthProvider();
         this.props.firebase.auth().signInWithPopup( provider );
+        this.setState({signInOrOut: "Sign Out"})
     }
 
     signOut(){
         this.props.firebase.auth().signOut();
+        this.setState({signInOrOut: "Sign In"})
     }
 
     render(){
         return(
             <div>
-                {/* this.props.user !== 'Guest' ? <h1>{this.props.user.displayName}</h1> : <h1>{this.props.user}</h1> */}
-                <h1>User: {this.props.user}</h1>
-                {this.props.user !== 'Guest' ? <button onClick={()=>this.signOut()}>Sign out</button> : <button onClick={()=>this.signIn()}>Sign In</button>}
+                <h1>User: {/* this.props.user === "Guest" ? this.props.user : this.props.user.displayName */} </h1>
+                <button onClick={ this.props.user !== 'Guest' ? this.signOut.bind(this) : this.signIn.bind(this)}>{ this.props.user !== 'Guest' ? "Sign Out" : "Sign In" }</button>
             </div>
         )
     }
