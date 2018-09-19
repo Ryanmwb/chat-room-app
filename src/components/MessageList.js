@@ -23,13 +23,14 @@ class MessageList extends Component {
 
     handleMessageChange(e){
         this.setState({newMessage: e.target.value})
+        console.log(this.state.messages)
     }
 
     createMessage(e){
         e.preventDefault();
         console.log(this.props.currentRoom)
         this.messagesRef.push({
-            username: "username will go here",
+            username: this.props.user.displayName,
             content: this.state.newMessage,
             sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
             roomId: this.props.currentRoom
@@ -51,8 +52,9 @@ class MessageList extends Component {
                     {this.state.messages.filter(message=>
                         message.roomId === this.props.currentRoom).map((message, index)=>
                             <tr className="messages" key={message.key}>
-                                <td>Message: {message.content}</td>
-                                <td>Date Created: {message.sentAt}</td>
+                                <td>Message: {message.content} | </td>
+                                <td>Date Created: {message.sentAt} | </td>
+                                <td>User: { message.username }</td>
                             </tr>
                         )
                     }
