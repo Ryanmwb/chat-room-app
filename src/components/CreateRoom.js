@@ -6,7 +6,7 @@ class CreateRoom extends Component {
     }
         render(){
             return(
-                <form className="justify-center">
+                <form className="create-room">
                     <div className="row">
                         <span className="">
                             <input 

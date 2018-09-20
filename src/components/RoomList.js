@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CreateRoom from './CreateRoom'
+import './RoomList.css'
 
 class RoomList extends Component {
     constructor(props){
@@ -7,7 +8,7 @@ class RoomList extends Component {
         this.roomsRef = this.props.firebase.database().ref('rooms');
         this.state = {
             rooms: [],
-            chatRoomName: ""
+            chatRoomName: "",
         }
     };
 
@@ -34,22 +35,22 @@ class RoomList extends Component {
 
     render() {
         return (
-            <section className ="chat-room-list">
-            <CreateRoom 
-                chatRoomName={this.state.chatRoomName} 
-                createChatRoom={(e) => this.createChatRoom(e)}
-                handleNameChange={(e)=>this.handleNameChange(e)}
-            />
-			{this.state.rooms.map( (room) =>
-				<div className="rooms" key={room.key}>
-					<li> 
-                        <button 
-                            className="room-list" 
-                            onClick={() => this.props.changeCurrentRoom(room)}
-                            >{room.name}</button>
-                    </li>
-				</div>
-				)}
+            <section className ="sidebar">
+                <CreateRoom 
+                    chatRoomName={this.state.chatRoomName} 
+                    createChatRoom={(e) => this.createChatRoom(e)}
+                    handleNameChange={(e)=>this.handleNameChange(e)}
+                />
+                {this.state.rooms.map( (room) =>
+                    <div className="rooms" key={room.key}>
+                        <li> 
+                            <button 
+                                className="room-list" 
+                                onClick={() => this.props.changeCurrentRoom(room)}
+                                >{room.name}</button>
+                        </li>
+                    </div>
+                )}
 			</section>
         )
     }
