@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import EmojiPicker from 'emoji-picker-react';
 
 class CreateMessage extends Component {
     constructor(props){
@@ -6,10 +7,10 @@ class CreateMessage extends Component {
     }
         render(){
             return(
-                <form className="createMessage">
+                <form className="create-message">
                     <div className="row">
-                        <span className="" id="container">
-                            <label for="message">Create Message</label>
+                        <span className="">
+                            <label for="message" className="font">Create Message</label>
                             <textarea 
                                 id="message"
                                 placeholder="Type Message Here" 
@@ -19,7 +20,8 @@ class CreateMessage extends Component {
                                 onChange={(e)=>this.props.handleMessageChange(e)}
                                 value={this.props.messageValue}>
                             </textarea>
-                            <button className="btn btn-primary sendMessage" width="300" onClick={(e)=>this.props.createMessage(e)}>
+                            {/* <mojiPicker onEmojiClick={myCallback}/>*/}
+                            <button className="btn btn-primary send-message" width="300" onClick={(e)=>this.props.createMessage(e)}>
                                 Send Message
                             </button>
                         </span>

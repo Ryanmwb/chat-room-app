@@ -50,21 +50,22 @@ class MessageList extends Component {
     render() {
 
         return (
-            <div className="messageList">
-                <table>
-                    <tbody>
-                    {this.props.currentRoom ? (<tr>
-                        <td className="messageListTitle" colspan="3">{this.props.currentRoomName}'s Messages</td>
-                        </tr>) : (<tr></tr>)}
-                    {this.state.messages.filter(message=>
-                        message.roomId === this.props.currentRoom).map((message, index)=>
-                            <tr className="messages" key={message.key}>
-                                <td align="right">MESSAGE: {message.content} | </td>
-                                <td>DATE CREATED: {message.sentAt} | </td>
-                                <td align="left">USER: { message.username }</td>
-                            </tr>
-                        )
-                    }
+            <div className="message-list">
+                <table className="table">
+                    <tbody className="font">
+                        {this.props.currentRoom ? (<tr>
+                            <td className="message-list-title" colspan="3">{this.props.currentRoomName}'s Messages</td>
+                            </tr>) : (<tr></tr>)
+                        }
+                        {this.state.messages.filter(message=>
+                            message.roomId === this.props.currentRoom).map((message, index)=>
+                                <tr className="messages table-row" key={message.key}>
+                                    <td align="right">MESSAGE: {message.content} | </td>
+                                    <td>DATE CREATED: {message.sentAt} | </td>
+                                    <td align="left">USER: { message.username }</td>
+                                </tr>
+                            )
+                        }
                     </tbody>
                 </table>
                 <CreateMessage 

@@ -9,7 +9,7 @@
     padding-top: 20px;
     list-style: none;
     margin: 0px;
-    background-color: gainsboro;
+    background-color: #e1d4f7;
   }
 
         .room-list{
@@ -33,7 +33,7 @@
             margin-bottom: 3px;
         }
 
-.createMessage{
+.create-message{
     margin: 0 auto;
     justify-content: center;
     padding-bottom: 30px;
@@ -44,18 +44,18 @@
     padding-bottom: 35px;
 }
 
-.messageList{
+.message-list{
     justify-content: center;
     margin: 0 auto;
     text-align: center;
 } 
 
-.messageListTitle{
+.message-list-title{
     font-size: 30px;
     text-decoration: underline;
 }
 
-.messageList > table{
+.message-list > table{
     margin: 0 auto;
 }
 
@@ -71,7 +71,37 @@
     align-content: right;
 }
 
-.sendMessage{
+.send-message{
     border-radius: 50px;
+    border-top-right-radius: 12px;
     width: 25%;
+    float: right;
+    background-color: #D61A46;
+    border-color: #D61A46;
+}
+
+#message{
+    margin-bottom: 0;
+}
+
+.user-button{
+    background-color: #e1d4f7;
+    border-color: #e1d4f7;
+}
+
+.rooms-button{
+    background-color: #9A0794;
+    border-color: #9A0794;
+}
+
+.font{
+    color: #e1d4f7;
+}
+
+.table{
+    margin-bottom: 20px;
+}
+
+.table-row{
+    border: none;
 }

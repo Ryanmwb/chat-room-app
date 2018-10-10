@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import CreateRoom from './CreateRoom'
-import './RoomList.css'
+import './Components.css'
 
 class RoomList extends Component {
     constructor(props){
@@ -46,7 +46,8 @@ class RoomList extends Component {
                         <li> 
                             <button
                                 type="button" 
-                                className="btn btn-info" 
+                                className="btn btn-info rooms-button" 
+                                
                                 onClick={() => this.props.changeCurrentRoom(room)}
                                 >{room.name}
                             </button>

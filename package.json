@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "emojione": "^4.0.0",
-    "emojionearea": "^3.4.1",
+    "emoji-picker-react": "^2.1.1",
     "firebase": "^5.4.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",

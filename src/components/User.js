@@ -31,8 +31,8 @@ class User extends Component {
     render(){
         return(
             <div className="user">
-                <h2>User: { this.props.user === null ? "Guest" : this.props.user.displayName } </h2>
-                <button type="button" class="btn btn-light" onClick={ this.props.user !== null ? this.signOut.bind(this) : this.signIn.bind(this)}>{ this.props.user !== null ? "Sign Out" : "Sign In" }</button>
+                <h2 className="font">User: { this.props.user === null ? "Guest" : this.props.user.displayName } </h2>
+                <button type="button" class="btn btn-light user-button" onClick={ this.props.user !== null ? this.signOut.bind(this) : this.signIn.bind(this)}>{ this.props.user !== null ? "Sign Out" : "Sign In" }</button>
             </div>
         )
     }
