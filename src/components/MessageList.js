@@ -36,31 +36,42 @@ class MessageList extends Component {
             roomId: this.props.currentRoom
         })
         console.log(this.state.messages)
+        this.setState({newMessage: ''})
+    }
+
+    messageListTitle(){
+        if(this.props.currentRoom){
+            return <tr>
+                <td className="messageListTitle">{this.props.currentRoomName}'s Messages</td>
+            </tr>
+        }
     }
 
     render() {
+
         return (
-            <div>
-                <h1>Message List Component</h1>
-                <CreateMessage 
-                    handleMessageChange={(e)=>this.handleMessageChange(e)} 
-                    createMessage={(e)=>this.createMessage(e)} 
-                    messageValue={this.state.newMessage}
-                />
+            <div className="messageList">
                 <table>
                     <tbody>
+                    {this.props.currentRoom ? (<tr>
+                        <td className="messageListTitle" colspan="3">{this.props.currentRoomName}'s Messages</td>
+                        </tr>) : (<tr></tr>)}
                     {this.state.messages.filter(message=>
                         message.roomId === this.props.currentRoom).map((message, index)=>
                             <tr className="messages" key={message.key}>
-                                <td>Message: {message.content} | </td>
-                                <td>Date Created: {message.sentAt} | </td>
-                                <td>User: { message.username }</td>
+                                <td align="right">MESSAGE: {message.content} | </td>
+                                <td>DATE CREATED: {message.sentAt} | </td>
+                                <td align="left">USER: { message.username }</td>
                             </tr>
                         )
                     }
                     </tbody>
                 </table>
-
+                <CreateMessage 
+                    handleMessageChange={(e)=>this.handleMessageChange(e)} 
+                    createMessage={(e)=>this.createMessage(e)} 
+                    messageValue={this.state.newMessage}
+                />
             </div>
         )
     }

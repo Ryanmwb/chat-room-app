@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './RoomList.css'
 
 class CreateRoom extends Component {
     constructor(props){
@@ -16,7 +17,7 @@ class CreateRoom extends Component {
                                 onChange={this.props.handleNameChange}
                                 value={this.props.chatRoomName}
                             />
-                            <button className="col" onClick={this.props.createChatRoom}>
+                            <button type="button" className="col btn btn-success" onClick={this.props.createChatRoom}>
                                 Create Chat Room
                             </button>
                         </span>

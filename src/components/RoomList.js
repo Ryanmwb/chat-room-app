@@ -44,10 +44,12 @@ class RoomList extends Component {
                 {this.state.rooms.map( (room) =>
                     <div className="rooms" key={room.key}>
                         <li> 
-                            <button 
-                                className="room-list" 
+                            <button
+                                type="button" 
+                                className="btn btn-info" 
                                 onClick={() => this.props.changeCurrentRoom(room)}
-                                >{room.name}</button>
+                                >{room.name}
+                            </button>
                         </li>
                     </div>
                 )}

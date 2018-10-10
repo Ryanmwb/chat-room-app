@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
@@ -20,12 +19,15 @@ class App extends Component {
     super(props)
     this.state = {
       currentRoom: null,
+      currentRoomName: null,
       user: null,
     }
   }
 
   changeCurrentRoom(room){
     this.setState({currentRoom: room.key})
+    this.setState({currentRoomName: room.name})
+    console.log(this.state.currentRoom)
   }
 
   setUser(user){
@@ -36,13 +38,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header className="header">
           <h1>Bloc Chat</h1>
         </header>
         <main>
           <User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user}/>
           <RoomList firebase={firebase} changeCurrentRoom={(room) => this.changeCurrentRoom(room)}/>
-          <MessageList firebase={firebase} currentRoom={this.state.currentRoom} user={this.state.user}/>
+          <MessageList firebase={firebase} currentRoom={this.state.currentRoom} currentRoomName={this.state.currentRoomName} user={this.state.user}/>
         </main>
       </div>
     );

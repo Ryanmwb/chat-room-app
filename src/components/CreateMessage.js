@@ -6,16 +6,20 @@ class CreateMessage extends Component {
     }
         render(){
             return(
-                <form className="justify-center">
+                <form className="createMessage">
                     <div className="row">
-                        <span className="">
-                            <textarea placeholder="Message goes here" 
-                                rows="4" 
-                                cols="70" 
+                        <span className="" id="container">
+                            <label for="message">Create Message</label>
+                            <textarea 
+                                id="message"
+                                placeholder="Type Message Here" 
+                                cols="70"
+                                rows="6"
+                                class="form-control"
                                 onChange={(e)=>this.props.handleMessageChange(e)}
                                 value={this.props.messageValue}>
                             </textarea>
-                            <button className="col" width="300" onClick={(e)=>this.props.createMessage(e)}>
+                            <button className="btn btn-primary sendMessage" width="300" onClick={(e)=>this.props.createMessage(e)}>
                                 Send Message
                             </button>
                         </span>
