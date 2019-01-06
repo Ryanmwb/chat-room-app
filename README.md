@@ -1,5 +1,5 @@
 # What is ChatRoom?
-ChatRoom is a web application that utilizes React Firebase, allowing users to create chatroom's and messages.
+ChatRoom is a web application that utilizes React Firebase, allowing users to create chatroom's and messages inside those chatrooms.
 
 ## Notable Languages
 * Javascript
