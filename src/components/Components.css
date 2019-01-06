@@ -9,7 +9,7 @@
     padding-top: 20px;
     list-style: none;
     margin: 0px;
-    background-color: #e1d4f7;
+    background-color: #D61A46;
   }
 
         .room-list{
@@ -90,8 +90,9 @@
 }
 
 .rooms-button{
-    background-color: #9A0794;
-    border-color: #9A0794;
+    background-color: #e1d4f7;
+    border-color: #e1d4f7;
+    color: #D61A46;
 }
 
 .font{
